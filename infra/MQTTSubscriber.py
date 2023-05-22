@@ -127,8 +127,8 @@ broker_port = 1883  # Replace with your MQTT broker port
 # Subscribe to MQTT topics
 topic = "/feeds"
 
-# subscriber = MQTTSubscriber(broker_address, broker_port, topic, '../data/sensor_streams')
-# subscriber.start()
+subscriber = MQTTSubscriber(broker_address, broker_port, topic, '../data/sensor_streams')
+subscriber.start()
 
 path = '../data/sensor_streams'
 df = convert_folder_to_dataframe(path)
@@ -146,4 +146,4 @@ df['minute'] = [datetime.fromtimestamp(item).minute for item in df.timestamp]
 df['microsecond'] = [datetime.fromtimestamp(item).microsecond for item in df.timestamp]
 
 
-df.plot('data', 'temp')
+df.plot('day', 'temp')
