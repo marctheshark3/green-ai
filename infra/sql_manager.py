@@ -70,7 +70,7 @@ class SQLiteManager:
                     self.insert_data(sensor_data)
 
             # Remove the JSON file after compressing
-            # os.remove(file_path)
+            os.remove(file_path)
 
     def query_data_as_dataframe(self):
         conn = sqlite3.connect(self.db_file)
@@ -91,6 +91,7 @@ class SQLiteManager:
 
         conn.commit()
         conn.close()
+
 
 # Example usage
 db_file = "../data/green_data.db"  # Replace with the desired path to the SQLite database file
@@ -113,7 +114,6 @@ manager.create_table()
 folder_path = "../data/sensor_streams/"  # Replace with the folder containing the JSON files
 manager.compress_json_files(folder_path)
 df = manager.query_data_as_dataframe()
-manager.clear_table()
 
 # Example usage
 # db_file = "../data/green_data.db"  # Replace with the desired path to the SQLite database file
