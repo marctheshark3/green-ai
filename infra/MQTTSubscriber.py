@@ -83,7 +83,7 @@ class MQTTSubscriber:
         # sensor = combined_payload['sensor']
         # timestamp = combined_payload['timestamp']
 
-        file_name = f"{self.timestamp}.json"
+        file_name = f"{self.timestamp}_sensor_data.json"
         file_path = os.path.join(self.output_dir, file_name)
 
         with open(file_path, 'w+') as file:
